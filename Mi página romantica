@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi Amor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo">💜 Para Ti, Mi Amor 💜</h1>
+        <p class="mensaje">Te amo mucho y gracias por ser mi novia. Eres lo mejor que me ha pasado. 💜</p>
+        
+        <div class="respuesta">
+            <h2>Déjame tu mensaje 💌</h2>
+            <textarea id="mensaje-novia" placeholder="Escribe aquí..."></textarea>
+            <button onclick="guardarMensaje()">Enviar</button>
+            <p id="mensaje-guardado"></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    background: url('fondo-vacas-mariposas.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+    padding: 50px;
+}
+
+.container {
+    background: rgba(128, 0, 128, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.titulo {
+    font-size: 2.5em;
+    animation: parpadeo 1.5s infinite alternate;
+}
+
+.mensaje {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    animation: aparecer 3s ease-in-out;
+}
+
+.respuesta {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+    background: white;
+    color: purple;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: violet;
+    color: white;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+function guardarMensaje() {
+    let mensaje = document.getElementById("mensaje-novia").value;
+    if (mensaje.trim() !== "") {
+        document.getElementById("mensaje-guardado").innerText = "Tu mensaje ha sido guardado: " + mensaje;
+        document.getElementById("mensaje-novia").value = "";
+    } else {
+        alert("Escribe algo bonito antes de enviar 💜");
+    }
+
+}
